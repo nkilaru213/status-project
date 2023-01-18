@@ -1,0 +1,10 @@
+Step1:
+create table users( user_id serial PRIMARY KEY, name varchar(20), email varchar(20), password TEXT);
+insert into users(name, email, password) VALUES('test', 't@te.com', '1234');
+SELECT * from users;
+
+Step2:
+create table login_history( login_id serial PRIMARY KEY, user_id int, login_date date, FOREIGN KEY(user_id) REFERENCES users(user_id) );
+insert into login_history(user_id,login_date) VALUES(1, '2017-04-30' );
+select * from login_history where user_id=2;
+
