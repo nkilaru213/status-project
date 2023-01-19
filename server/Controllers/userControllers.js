@@ -4,6 +4,7 @@ const db = require("../DB/dbConnection");
 exports.getUserById = async (req, res, next, id) => {
   try {
     const user = await db.query("select * from users where user_id=$1", [id]);
+    console.log(user);
     if (user.rows.length === 0) {
       const error = new Error("User not found");
       error.statusCode = 400;

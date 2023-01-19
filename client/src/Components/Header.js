@@ -45,10 +45,10 @@ const Header = ({ history }) => {
           {isAutheticated() && (
             <Link
               className='nav-link'
-              to='/allRecipes'
+              to='/allincidents'
               style={{ color: "white", fontSize: "1.3rem" }}
             >
-              All recipes
+              All incidents
             </Link>
           )}
 

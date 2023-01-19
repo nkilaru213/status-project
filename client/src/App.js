@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import RegisterForm from "./Components/RegisterForm";
 import LoginForm from "./Components/LoginForm";
-import AllRecipes from "./Pages/AllRecipesPage";
+import Allincidents from "./Pages/AllIncidentsPage";
 import ProfilePage from "./Pages/ProfilePage";
 import Home from "./Components/Home";
 import ResetPassword from "./Pages/ResetPasswordPage";
@@ -23,7 +23,7 @@ function App() {
           <Route path='/register' component={RegisterForm} />
           <Route path='/login' component={LoginForm} />
           <Route path='/profile' exact component={ProfilePage} />
-          <Route path='/allRecipes' component={AllRecipes} />
+          <Route path='/allincidents' component={Allincidents} />
           <Route path='/resetpassword/:id' component={ResetPasswordPage} />
         </Switch>
         <Footer />

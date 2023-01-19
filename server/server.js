@@ -19,6 +19,16 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/loginhistory", loginRoutes);
 
+app.get("/api/incidents", async (req, res) => {
+  const incidents = await db.query("select * from incidents");
+  res.status(200).json({
+    status: "success",
+    data: {
+      incidents: incidents.rows,
+    },
+  });
+});
+
 app.use((errors, req, res, next) => {
   const status = errors.statusCode || 500;
   const message = errors.message;
