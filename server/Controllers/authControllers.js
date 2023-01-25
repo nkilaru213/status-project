@@ -1,19 +1,9 @@
 const bcrypt = require("bcrypt");
 const expressJwt = require("express-jwt");
 const { check, validationResult } = require("express-validator");
-const nodemailer = require("nodemailer");
-const sendGrid = require("nodemailer-sendgrid-transport");
 
 const db = require("../DB/dbConnection");
 const generateToken = require("../Utils/tokenGeneration");
-
-const transport = nodemailer.createTransport(
-  sendGrid({
-    auth: {
-      api_key: process.env.SENDGRID_API,
-    },
-  })
-);
 
 exports.register = async (req, res, next) => {
   let errors = validationResult(req);
@@ -95,12 +85,6 @@ exports.login = async (req, res, next) => {
     res.status(200).json({
       data: userexists.rows[0],
       token: generateToken(userexists.rows[0].user_id),
-    });
-    let sendMail = await transport.sendMail({
-      to: "babuparupalli@gmail.com",
-      from: "no-replay@test.com",
-      subject: "welcome",
-      html: "<h1>Welcome to rms</h1>",
     });
   } catch (err) {
     if (!err.statusCode) {

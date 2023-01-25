@@ -10,7 +10,6 @@ import Allincidents from "./Pages/AllIncidentsPage";
 import ProfilePage from "./Pages/ProfilePage";
 import Home from "./Components/Home";
 import ResetPassword from "./Pages/ResetPasswordPage";
-import Footer from "./Components/FooterComponent";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
           <Route path='/allincidents' component={Allincidents} />
           <Route path='/resetpassword/:id' component={ResetPasswordPage} />
         </Switch>
-        <Footer />
       </Router>
     </div>
   );
